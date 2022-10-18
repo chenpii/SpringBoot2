@@ -16,7 +16,7 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String handler01() {
-        return "Hello Spring Boot2!";
+        return "Hello Spring Boot2!" + "你好";
     }
 
 
