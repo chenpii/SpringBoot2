@@ -71,6 +71,7 @@ public class MainApplication {
         System.out.println("容器中haha组件："+haha);
         boolean hehe = run.containsBean("hehe");
         System.out.println("容器中hehe组件："+hehe);
+
     }
 
 }
