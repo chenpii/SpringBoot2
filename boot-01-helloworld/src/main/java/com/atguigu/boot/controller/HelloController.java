@@ -40,6 +40,4 @@ public class HelloController {
         log.info("进入请求");
         return "Hello Spring Boot2!" + "你好:" + name;
     }
-
-
 }
