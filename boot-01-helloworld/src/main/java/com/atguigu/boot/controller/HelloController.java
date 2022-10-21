@@ -3,10 +3,18 @@ package com.atguigu.boot.controller;
 import com.atguigu.boot.bean.Car;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.servlet.DispatcherServlet;
 
 /**
  * @author chenpi
@@ -26,8 +34,8 @@ public class HelloController {
     }
 
     @RequestMapping("/hello")
-    public String handler01() {
-        return "Hello Spring Boot2!" + "你好";
+    public String handler01(@RequestParam("name") String name) {
+        return "Hello Spring Boot2!" + "你好:" + name;
     }
 
     @Test
@@ -52,6 +60,7 @@ public class HelloController {
 
         }
         System.out.println(openAccountType);
+
 
     }
 

@@ -47,9 +47,9 @@ public class MyConfig {
 
 
     @Bean //给容器中添加组件。方法名作为组件id，返回类型就是组件类型，返回值就是组件在容器中的实例
-    public User user01() {
+    public User user01(Pet tom22) {
         User zhangsan = new User("张三", 18);
-        zhangsan.setPet(tomcatPet());
+        zhangsan.setPet(tom22);
         return zhangsan;
     }
 }
