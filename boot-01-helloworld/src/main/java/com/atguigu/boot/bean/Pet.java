@@ -2,6 +2,8 @@ package com.atguigu.boot.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * 宠物
@@ -11,6 +13,8 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Pet {
+
     private String name;
 }

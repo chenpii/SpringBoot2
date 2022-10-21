@@ -1,6 +1,7 @@
 package com.atguigu.boot.controller;
 
 import com.atguigu.boot.bean.Car;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -23,6 +24,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 // @Controller
 // @ResponseBody
 @RestController
+@Slf4j
 public class HelloController {
 
     @Autowired
@@ -35,33 +37,9 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String handler01(@RequestParam("name") String name) {
+        log.info("进入请求");
         return "Hello Spring Boot2!" + "你好:" + name;
     }
 
-    @Test
-    public void handler02() {
-        String type = "0";
-        // String type = "1";
-        // String type = "2";
-        String openAccountType = null;
-        switch (type) {
-
-            case "0":
-                openAccountType = "预开户";
-                break;
-
-            case "1":
-                openAccountType = "开户配卡";
-                break;
-            case "2":
-                openAccountType = "仅开户不开卡";
-                break;
-            default:
-
-        }
-        System.out.println(openAccountType);
-
-
-    }
 
 }
