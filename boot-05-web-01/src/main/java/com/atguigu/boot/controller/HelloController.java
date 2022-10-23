@@ -1,7 +1,9 @@
 package com.atguigu.boot.controller;
 
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 /**
  * @author chenpi
@@ -12,5 +14,7 @@ public class HelloController {
     @RequestMapping("/bug.jpg")
     public String hello() {
         return "hello";
+
+
     }
 }

@@ -1,6 +1,9 @@
-#spring:
+spring:
 #  mvc:
 #    static-path-pattern: /res/** # 配置之后导致welcome page 功能失效
-#
-#  resources:
-#    static-locations: [ classpath:/haha/ ]
+
+  resources:
+    static-locations: [ classpath:/haha/ ]
+    add-mappings: true
+    cache:
+      period: 11000
