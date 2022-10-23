@@ -1,0 +1,32 @@
+person:
+  username: "张三 \n 李四"
+  #  单引号 会转义
+  #  双引号不会转义
+  boss: true
+  birth: 2022/10/23
+  age: 18
+  #  interests: [篮球,足球]
+  interests:
+    - 篮球
+    - 足球
+  #  animal: [ jerry,tom ]
+  animal:
+    - jerry
+    - tom
+  #  score: {english: 80,math: 90}
+  score:
+    english: 80
+    math: 90
+  salarys:
+    - 9999.98
+    - 9999.99
+  pet:
+    name: tomcat
+    weight: 23.4
+  allPets:
+    sick:
+      - { name: tomcat,weight: 23.4 }
+      - name: jerry
+        weight: 22.5
+    health:
+      - { name: tom ,weight: 19.4 }
