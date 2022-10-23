@@ -1,9 +1,13 @@
 spring:
-#  mvc:
-#    static-path-pattern: /res/** # 配置之后导致welcome page 功能失效
+  #  mvc:
+  #    static-path-pattern: /res/** # 配置之后导致welcome page 功能失效
 
   resources:
     static-locations: [ classpath:/haha/ ]
     add-mappings: true
     cache:
       period: 11000
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
