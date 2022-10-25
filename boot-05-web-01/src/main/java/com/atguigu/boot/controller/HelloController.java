@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class HelloController {
     @RequestMapping("/bug.jpg")
-    public String hello() {
-        return "hello";
+    public String hello(@RequestParam("username") String name) {
+        return "hello" + name;
     }
 
     // @RequestMapping(value = "/user",method = RequestMethod.GET)
