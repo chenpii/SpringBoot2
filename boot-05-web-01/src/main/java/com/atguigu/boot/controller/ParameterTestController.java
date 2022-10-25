@@ -44,6 +44,7 @@ public class ParameterTestController {
     // 2、SpringBoot默认禁用了矩阵变量的功能。
     //              手动开启：原理。对于路径的处理。UrlPathHelper进行解析。
     //              removeSemicolonContent（移除分号内容）支持矩阵变量的
+    // 3、矩阵变量必须有url路径变量才能被解析
     @GetMapping("/cars/{path}")
     public Map carsell(@MatrixVariable("low") Integer low,
                        @MatrixVariable("brand") List<String> brand,
@@ -54,4 +55,15 @@ public class ParameterTestController {
         map.put("path", path);
         return map;
     }
+
+    // /bose/1;age=20/2;age=20
+    @GetMapping("/boss/{bossId}/{empId}")
+    public Map boss(@MatrixVariable(value = "age",pathVar = "bossId") Integer bossAge,
+                    @MatrixVariable(value = "age",pathVar = "empId")Integer empAge) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("bossAge",bossAge);
+        map.put("empAge",empAge);
+        return map;
+    }
+
 }
