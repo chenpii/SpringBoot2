@@ -1,5 +1,6 @@
 package com.atguigu.boot.controller;
 
+import com.atguigu.boot.bean.Person;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -8,6 +9,12 @@ import java.util.Map;
 
 @RestController
 public class ParameterTestController {
+
+
+    @PostMapping("/saveuser")
+    public Person saveUser(Person person) {
+        return person;
+    }
 
     // /car/2/owner/zhangsan
     @GetMapping("/car/{id}/owner/{username}")
@@ -58,11 +65,11 @@ public class ParameterTestController {
 
     // /bose/1;age=20/2;age=20
     @GetMapping("/boss/{bossId}/{empId}")
-    public Map boss(@MatrixVariable(value = "age",pathVar = "bossId") Integer bossAge,
-                    @MatrixVariable(value = "age",pathVar = "empId")Integer empAge) {
+    public Map boss(@MatrixVariable(value = "age", pathVar = "bossId") Integer bossAge,
+                    @MatrixVariable(value = "age", pathVar = "empId") Integer empAge) {
         Map<String, Object> map = new HashMap<>();
-        map.put("bossAge",bossAge);
-        map.put("empAge",empAge);
+        map.put("bossAge", bossAge);
+        map.put("empAge", empAge);
         return map;
     }
 
