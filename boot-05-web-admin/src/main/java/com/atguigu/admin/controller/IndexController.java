@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * 用于登录页跟首页的跳转
+ */
 @Controller
 public class IndexController {
 
