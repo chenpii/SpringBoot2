@@ -344,13 +344,13 @@
             <li>
                 <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     <img src="images/photos/user-avatar.png" alt=""/>
-                    John Doe
+                    [[${session.loginUser.userName}]]
                     <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
                     <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                     <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                    <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                    <li><a th:href="@{/login}"><i class="fa fa-sign-out"></i> Log Out</a></li>
                 </ul>
             </li>
 
