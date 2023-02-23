@@ -38,7 +38,7 @@ public class IndexController {
         if (StringUtils.hasLength(user.getUserName()) && "123456".equals(user.getPassword())) {
             //登录成功，user信息放到session里
             session.setAttribute("loginUser", user);
-            return "redirect:main.html";//避免刷新页面重复提交表单，使用重定向到main页面
+            return "redirect:main";//避免刷新页面重复提交表单，使用重定向到main页面
         } else {
             model.addAttribute("msg", "用户名密码错误");
             return "login";
@@ -53,7 +53,7 @@ public class IndexController {
      * @param model
      * @return
      */
-    @GetMapping("/main.html")//main页面刷新
+    @GetMapping("/main")//main页面刷新
     public String mainPage(HttpSession session, Model model) {
         //校验是否登录状态，否则回到login页
         Object loginUser = session.getAttribute("loginUser");
