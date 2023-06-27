@@ -38,7 +38,10 @@ public class IndexController {
         if (StringUtils.hasLength(user.getUserName()) && "123456".equals(user.getPassword())) {
             //登录成功，user信息放到session里
             session.setAttribute("loginUser", user);
+            // 重定向使得浏览器URL变更，页面刷新就不会重复提交。
+            // 如果使用请求跳转，则URL不变，页面刷新会重复提交数据。
             return "redirect:main";//避免刷新页面重复提交表单，使用重定向到main页面
+
         } else {
             model.addAttribute("msg", "用户名密码错误");
             return "login";
