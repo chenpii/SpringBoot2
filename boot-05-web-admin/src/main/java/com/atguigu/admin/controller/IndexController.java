@@ -1,6 +1,7 @@
 package com.atguigu.admin.controller;
 
 import com.atguigu.admin.bean.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * 用于登录页跟首页的跳转
  */
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -47,6 +49,7 @@ public class IndexController {
             return "login";
         }
 
+
     }
 
     /**
@@ -58,14 +61,18 @@ public class IndexController {
      */
     @GetMapping("/main")//main页面刷新
     public String mainPage(HttpSession session, Model model) {
-        //校验是否登录状态，否则回到login页
-        Object loginUser = session.getAttribute("loginUser");
-        if (loginUser != null) {
-            return "main";
-        } else {
-            model.addAttribute("msg", "请重新登录");
-            return "login";
-        }
+        log.info("当前方法是{}", "mainPage");
+        //已使用拦截器，这里禁用
+        // //校验是否登录状态，否则回到login页
+        // Object loginUser = session.getAttribute("loginUser");
+        // if (loginUser != null) {
+        //     return "main";
+        // } else {
+        //     model.addAttribute("msg", "请重新登录");
+        //     return "login";
+        // }
+
+        return "main";
     }
 
 }
