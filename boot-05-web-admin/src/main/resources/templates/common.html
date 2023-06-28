@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="commonheader">
-    <meta charset="UTF-8">
-
+    <!--common-->
     <link href="css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
     <link href="css/style-responsive.css" th:href="@{/css/style-responsive.css}" rel="stylesheet">
+
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -49,10 +49,10 @@
 
         <!--sidebar nav start-->
         <ul class="nav nav-pills nav-stacked custom-nav">
-            <li><a th:href="@{/main}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+            <li><a th:href="@{/main.html}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
             <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="blank_page.html"> Blank Page</a></li>
+                    <li ><a href="blank_page.html"> Blank Page</a></li>
                     <li><a href="boxed_view.html"> Boxed Page</a></li>
                     <li><a href="leftmenu_collapsed_view.html"> Sidebar Collapsed</a></li>
                     <li><a href="horizontal_menu.html"> Horizontal Menu</a></li>
@@ -92,7 +92,7 @@
 
             <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Forms</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="form_layouts.html"> Form Layouts</a></li>
+                    <li><a th:href="@{/form_layouts}"> Form Layouts</a></li>
                     <li><a href="form_advanced_components.html"> Advanced Components</a></li>
                     <li><a href="form_wizard.html"> Form Wizards</a></li>
                     <li><a href="form_validation.html"> Form Validation</a></li>
@@ -112,10 +112,10 @@
             </li>
             <li class="menu-list nav-active"><a href="#"><i class="fa fa-th-list"></i> <span>Data Tables</span></a>
                 <ul class="sub-menu-list">
-                    <li class="active"><a th:href="@{basic_table}"> Basic Table</a></li>
-                    <li><a th:href="@{dynamic_table}"> Advanced Table</a></li>
-                    <li><a th:href="@{responsive_table}"> Responsive Table</a></li>
-                    <li><a th:href="@{editable_table}"> Edit Table</a></li>
+                    <li><a th:href="@{/basic_table}"> Basic Table</a></li>
+                    <li><a th:href="@{/dynamic_table}"> Advanced Table</a></li>
+                    <li><a th:href="@{/responsive_table}"> Responsive Table</a></li>
+                    <li><a th:href="@{/editable_table}"> Edit Table</a></li>
                 </ul>
             </li>
 
@@ -150,6 +150,7 @@
 </div>
 <!-- left side end-->
 
+
 <!-- header section start-->
 <div th:fragment="headermenu" class="header-section">
 
@@ -159,7 +160,7 @@
 
     <!--search start-->
     <form class="searchform" action="index.html" method="post">
-        <input type="text" class="form-control" name="keyword" placeholder="Search here..."/>
+        <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
     </form>
     <!--search end-->
 
@@ -180,8 +181,7 @@
                                     <div>Database update</div>
                                 </div>
                                 <div class="progress progress-striped">
-                                    <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40"
-                                         role="progressbar" class="progress-bar progress-bar-warning">
+                                    <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
                                         <span class="">40%</span>
                                     </div>
                                 </div>
@@ -193,8 +193,7 @@
                                     <div>Dashboard done</div>
                                 </div>
                                 <div class="progress progress-striped">
-                                    <div style="width: 90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90"
-                                         role="progressbar" class="progress-bar progress-bar-success">
+                                    <div style="width: 90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class="progress-bar progress-bar-success">
                                         <span class="">90%</span>
                                     </div>
                                 </div>
@@ -206,8 +205,7 @@
                                     <div>Web Development</div>
                                 </div>
                                 <div class="progress progress-striped">
-                                    <div style="width: 66%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="66"
-                                         role="progressbar" class="progress-bar progress-bar-info">
+                                    <div style="width: 66%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="66" role="progressbar" class="progress-bar progress-bar-info">
                                         <span class="">66% </span>
                                     </div>
                                 </div>
@@ -219,8 +217,7 @@
                                     <div>Mobile App</div>
                                 </div>
                                 <div class="progress progress-striped">
-                                    <div style="width: 33%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="33"
-                                         role="progressbar" class="progress-bar progress-bar-danger">
+                                    <div style="width: 33%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="33" role="progressbar" class="progress-bar progress-bar-danger">
                                         <span class="">33% </span>
                                     </div>
                                 </div>
@@ -232,8 +229,7 @@
                                     <div>Issues fixed</div>
                                 </div>
                                 <div class="progress progress-striped">
-                                    <div style="width: 80%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80"
-                                         role="progressbar" class="progress-bar">
+                                    <div style="width: 80%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar">
                                         <span class="">80% </span>
                                     </div>
                                 </div>
@@ -253,17 +249,16 @@
                     <ul class="dropdown-list normal-list">
                         <li class="new">
                             <a href="">
-                                <span class="thumb"><img src="images/photos/user1.png" alt=""/></span>
+                                <span class="thumb"><img src="images/photos/user1.png" alt="" /></span>
                                 <span class="desc">
-                                          <span class="name">John Doe <span
-                                                  class="badge badge-success">new</span></span>
+                                          <span class="name">John Doe <span class="badge badge-success">new</span></span>
                                           <span class="msg">Lorem ipsum dolor sit amet...</span>
                                         </span>
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <span class="thumb"><img src="images/photos/user2.png" alt=""/></span>
+                                <span class="thumb"><img src="images/photos/user2.png" alt="" /></span>
                                 <span class="desc">
                                           <span class="name">Jonathan Smith</span>
                                           <span class="msg">Lorem ipsum dolor sit amet...</span>
@@ -272,7 +267,7 @@
                         </li>
                         <li>
                             <a href="">
-                                <span class="thumb"><img src="images/photos/user3.png" alt=""/></span>
+                                <span class="thumb"><img src="images/photos/user3.png" alt="" /></span>
                                 <span class="desc">
                                           <span class="name">Jane Doe</span>
                                           <span class="msg">Lorem ipsum dolor sit amet...</span>
@@ -281,7 +276,7 @@
                         </li>
                         <li>
                             <a href="">
-                                <span class="thumb"><img src="images/photos/user4.png" alt=""/></span>
+                                <span class="thumb"><img src="images/photos/user4.png" alt="" /></span>
                                 <span class="desc">
                                           <span class="name">Mark Henry</span>
                                           <span class="msg">Lorem ipsum dolor sit amet...</span>
@@ -290,7 +285,7 @@
                         </li>
                         <li>
                             <a href="">
-                                <span class="thumb"><img src="images/photos/user5.png" alt=""/></span>
+                                <span class="thumb"><img src="images/photos/user5.png" alt="" /></span>
                                 <span class="desc">
                                           <span class="name">Jim Doe</span>
                                           <span class="msg">Lorem ipsum dolor sit amet...</span>
@@ -342,15 +337,15 @@
                 </div>
             </li>
             <li>
-                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <img src="images/photos/user-avatar.png" alt=""/>
+                <a  href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <img src="images/photos/user-avatar.png" alt="" />
                     [[${session.loginUser.userName}]]
                     <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                    <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                    <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                    <li><a th:href="@{/login}"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                    <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
+                    <li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>
+                    <li><a th:href="@{/}"><i class="fa fa-sign-out"></i> Log Out</a></li>
                 </ul>
             </li>
 
@@ -361,7 +356,10 @@
 </div>
 <!-- header section end-->
 
+
+
 <div id="commonscript">
+    <!-- Placed js at the end of the document so the pages load faster -->
     <script th:src="@{/js/jquery-1.10.2.min.js}"></script>
     <script th:src="@{/js/jquery-ui-1.9.2.custom.min.js}"></script>
     <script th:src="@{/js/jquery-migrate-1.2.1.min.js}"></script>
