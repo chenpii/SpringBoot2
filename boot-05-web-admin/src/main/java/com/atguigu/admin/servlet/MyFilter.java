@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 @Slf4j
-@WebFilter(urlPatterns={"/css/*","/fonts/*","/images/*","/js/*"})//*是servlet的写法，**是SpringBoot的写法
+// @WebFilter(urlPatterns={"/css/*","/fonts/*","/images/*","/js/*"})//*是servlet的写法，**是SpringBoot的写法
 public class MyFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
