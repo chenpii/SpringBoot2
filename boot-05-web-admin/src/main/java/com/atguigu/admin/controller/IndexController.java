@@ -2,11 +2,15 @@ package com.atguigu.admin.controller;
 
 import com.atguigu.admin.bean.User;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +20,16 @@ import javax.servlet.http.HttpSession;
 @Slf4j
 @Controller
 public class IndexController {
+
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+
+    @ResponseBody
+    @GetMapping("/sql")
+    public String qureyFromDB() {
+        Long aLong = jdbcTemplate.queryForObject("select count(1) from account_tb1", Long.class);
+        return aLong.toString();
+    }
 
     /**
      * 访问登录页
@@ -37,7 +51,7 @@ public class IndexController {
      */
     @PostMapping("/login")
     public String main(User user, HttpSession session, Model model) {
-        if (StringUtils.hasLength(user.getUserName()) && "123456".equals(user.getPassword())) {
+        if (StringUtils.hasLength(user.getUserName()) && "@wbfw!&d".equals(user.getPassword())) {
             //登录成功，user信息放到session里
             session.setAttribute("loginUser", user);
             // 重定向使得浏览器URL变更，页面刷新就不会重复提交。
