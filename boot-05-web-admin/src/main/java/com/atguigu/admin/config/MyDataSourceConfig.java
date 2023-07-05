@@ -14,7 +14,8 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.Arrays;
 
-@Configuration
+@Deprecated
+// @Configuration
 public class MyDataSourceConfig {
 
     // 默认的自动配置是Hikari，判断容器中没有DataSource才会配  @ConditionalOnMissingBean(DataSource.class)
@@ -56,7 +57,7 @@ public class MyDataSourceConfig {
         WebStatFilter webStatFilter = new WebStatFilter();
         FilterRegistrationBean<WebStatFilter> filterRegistrationBean = new FilterRegistrationBean<>(webStatFilter);
         filterRegistrationBean.setUrlPatterns(Arrays.asList("/*"));
-        filterRegistrationBean.addInitParameter("exclusions","*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
+        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
         return filterRegistrationBean;
     }
 
