@@ -1,8 +1,11 @@
 package com.atguigu.admin.controller;
 
 import com.atguigu.admin.bean.Account;
+import com.atguigu.admin.bean.City;
 import com.atguigu.admin.bean.User;
+import com.atguigu.admin.mapper.CityMapper;
 import com.atguigu.admin.service.AccountService;
+import com.atguigu.admin.service.CityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,6 +28,23 @@ public class IndexController {
 
     @Autowired
     AccountService accountService;
+
+    @Autowired
+    CityService cityService;
+
+    @ResponseBody
+    @PostMapping("/city")
+    public City saveCity(City city) {
+        cityService.saveCity(city);
+        return city;
+    }
+
+    @ResponseBody
+    @GetMapping("/city")
+    public City getCityById(@RequestParam("id") Long id) {
+        return cityService.getCityById(id);
+
+    }
 
     @ResponseBody
     @GetMapping("/getAcc")
