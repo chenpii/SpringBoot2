@@ -33,3 +33,17 @@ CREATE TABLE db_account.city (
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_general_ci;
+
+/*==============================================================*/
+/* Table: user                                     */
+/*==============================================================*/
+DROP TABLE IF EXISTS user;
+
+CREATE TABLE user
+(
+    id BIGINT(20) auto_increment NOT NULL COMMENT '主键ID',
+    name VARCHAR(30) NULL DEFAULT NULL COMMENT '姓名',
+    age INT(11) NULL DEFAULT NULL COMMENT '年龄',
+    email VARCHAR(50) NULL DEFAULT NULL COMMENT '邮箱',
+    PRIMARY KEY (id)
+);

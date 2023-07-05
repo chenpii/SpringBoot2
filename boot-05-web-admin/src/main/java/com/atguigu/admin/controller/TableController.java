@@ -16,14 +16,17 @@ public class TableController {
 
     @GetMapping("/basic_table")
     public String basic_table() {
-        int i = 10 / 0;
+        // int i = 10 / 0; //制造异常
         return "table/basic_table";
     }
 
     @GetMapping("/dynamic_table")
     public String dynamic_table(Model model) {
-        List<User> users = Arrays.asList(new User("zhangsan", "123456"), new User("lisi", "1234444"), new User("wangwu", "888888"));
-        model.addAttribute("users", users);
+        //分页遍历表格
+        // List<User> users = Arrays.asList(new User("zhangsan", "123456"), new User("lisi", "1234444"), new User("wangwu", "888888"));
+        // model.addAttribute("users", users);
+
+        //从数据库中查出user表中的用户进行展示
         return "table/dynamic_table";
     }
 
