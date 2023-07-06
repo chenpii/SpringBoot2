@@ -3,9 +3,8 @@ package com.atguigu.admin.controller;
 import com.atguigu.admin.bean.Account;
 import com.atguigu.admin.bean.City;
 import com.atguigu.admin.bean.User;
-import com.atguigu.admin.mapper.CityMapper;
-import com.atguigu.admin.service.AccountService;
-import com.atguigu.admin.service.CityService;
+import com.atguigu.admin.service.IAccountService;
+import com.atguigu.admin.service.ICityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,10 +26,10 @@ public class IndexController {
     JdbcTemplate jdbcTemplate;
 
     @Autowired
-    AccountService accountService;
+    IAccountService accountService;
 
     @Autowired
-    CityService cityService;
+    ICityService cityService;
 
     @ResponseBody
     @PostMapping("/city")

@@ -1,12 +1,13 @@
-package com.atguigu.admin.service;
+package com.atguigu.admin.service.impl;
 
 import com.atguigu.admin.bean.Account;
 import com.atguigu.admin.mapper.AccountMapper;
+import com.atguigu.admin.service.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AccountService {
+public class AccountServiceImpl implements IAccountService {
     @Autowired
     AccountMapper accountMapper;
 

@@ -62,19 +62,43 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>用户名</th>
-                                        <th>密码</th>
+                                        <th>id</th>
+                                        <th>name</th>
+                                        <th>age</th>
+                                        <th>email</th>
+                                        <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr class="gradeX" th:each="user,status:${users}">
+                                    <tr class="gradeX" th:each="user,status:${page.records}">
                                         <td th:text="${status.count}">Trident</td>
-                                        <td th:text="${user.userName}">Internet</td>
-                                        <td>[[${user.password}]]</td>
+                                        <td th:text="${user.id}">id</td>
+                                        <td class="" th:text="${user.name}"></td>
+                                        <td class="" th:text="${user.age}"></td>
+                                        <td class="center hidden-phone">[[${user.email}]]</td>
+                                        <td class="center hidden-phone sorting_1">X</td>
                                     </tr>
                                     </tbody>
                                     </tfoot>
                                 </table>
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        <div class="dataTables_info" id="dynamic-table_info">
+                                            当前第[[${page.current}]]页  总计 [[${page.pages}]]页  共[[${page.total}]]条记录
+                                        </div>
+                                    </div>
+                                    <div class="span6">
+                                        <div class="dataTables_paginate paging_bootstrap pagination">
+                                            <ul>
+                                                <li class="prev disabled"><a href="#">← 前一页</a></li>
+                                                <li th:class="${num == page.current?'active':''}" th:each="num:${#numbers.sequence(1,page.pages)}" >
+                                                    <a th:href="@{/dynamic_table(pn=${num})}">[[${num}]]</a>
+                                                </li>
+                                                <li class="next disabled"><a href="#">下一页 → </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
