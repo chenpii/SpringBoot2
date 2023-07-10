@@ -76,7 +76,9 @@
                                         <td class="" th:text="${user.name}"></td>
                                         <td class="" th:text="${user.age}"></td>
                                         <td class="center hidden-phone">[[${user.email}]]</td>
-                                        <td class="center hidden-phone sorting_1">X</td>
+                                        <td>
+                                            <a th:href="@{/user/delete/{id}(id=${user.id},pn=${page.current})}" class="btn btn-danger btn-sm" type="button">删除</a>
+                                        </td>
                                     </tr>
                                     </tbody>
                                     </tfoot>
