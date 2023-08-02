@@ -5,7 +5,11 @@ import com.atguigu.admin.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -23,6 +27,12 @@ class Boot05WebAdminApplicationTests {
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
+
+    @Autowired
+    RedisConnectionFactory redisConnectionFactory;
+
     @Test
     void contextLoads() {
         // jdbcTemplate.queryForObject("select conut(1) from account_tb1");
@@ -36,6 +46,15 @@ class Boot05WebAdminApplicationTests {
     void testUserMapper() {
         User user = userMapper.selectById(1L);
         log.info("用户信息：{}", user);
+    }
+
+    @Test
+    void testRedies() {
+        ValueOperations<String, String> stringStringValueOperations = stringRedisTemplate.opsForValue();
+        stringStringValueOperations.set("hello1", "world");
+        String hello1 = stringStringValueOperations.get("hello1");
+        log.info(hello1);
+        System.out.println(redisConnectionFactory.getClass());
     }
 
 
